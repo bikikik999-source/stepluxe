@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StepLuxe — Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="index.html" class="logo">StepLuxe</a>
+    <a href="index.html">← Nazad u prodavnicu</a>
+  </div>
+</header>
+
+<main class="admin-page">
+
+  <!-- LOGIN -->
+
+  <section id="login" class="admin-login">
+    <div class="admin-card">
+
+      <p class="eyebrow">STEPLUXE ADMIN</p>
+      <h1>Prijava</h1>
+
+      <form id="loginForm">
+
+        <label>
+          Admin šifra
+          <input
+            id="password"
+            type="password"
+            placeholder="Unesi šifru"
+            required
+          >
+        </label>
+
+        <button class="button full" type="submit">
+          Uđi u panel →
+        </button>
+
+        <p id="loginError" class="error"></p>
+
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- DASHBOARD -->
+
+  <section id="dashboard" class="container admin-dashboard hidden">
+
+    <div class="admin-top">
+
+      <div>
+        <p class="eyebrow">STEPLUXE ADMIN</p>
+        <h1>Kontrolni panel</h1>
+      </div>
+
+      <button id="logout" class="button">
+        Odjavi se
+      </button>
+
+    </div>
+
+
+    <div class="admin-tabs">
+
+      <button
+        class="tab active"
+        data-tab="productsTab">
+        Proizvodi
+      </button>
+
+      <button
+        class="tab"
+        data-tab="ordersTab">
+        Porudžbine
+      </button>
+
+    </div>
+
+
+    <!-- PROIZVODI -->
+
+    <div id="productsTab" class="admin-panel">
+
+      <div class="admin-section-heading">
+
+        <div>
+          <p class="eyebrow">KOLEKCIJA</p>
+          <h2>Proizvodi</h2>
+        </div>
+
+        <button id="newProduct" class="button">
+          + Dodaj proizvod
+        </button>
+
+      </div>
+
+      <div id="adminProducts"></div>
+
+    </div>
+
+
+    <!-- PORUDŽBINE -->
+
+    <div id="ordersTab" class="admin-panel hidden">
+
+      <div class="admin-section-heading">
+
+        <div>
+          <p class="eyebrow">PRODAJA</p>
+          <h2>Porudžbine</h2>
+        </div>
+
+        <button id="clearOrders" class="button">
+          Obriši demo porudžbine
+        </button>
+
+      </div>
+
+      <div id="adminOrders"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- PRODUCT MODAL -->
+
+<div id="adminModal" class="modal">
+
+  <div class="modal-box admin-modal-box">
+
+    <button id="closeAdmin" class="modal-close">
+      ×
+    </button>
+
+    <p class="eyebrow">PROIZVOD</p>
+
+    <h2 id="adminModalTitle">
+      Dodaj proizvod
+    </h2>
+
+    <form id="productForm">
+
+      <input type="hidden" name="id">
+
+      <label>
+        Naziv proizvoda
+        <input
+          type="text"
+          name="name"
+          required
+        >
+      </label>
+
+      <label>
+        Cena
+        <input
+          type="number"
+          name="price"
+          min="0"
+          required
+        >
+      </label>
+
+      <label>
+        Kategorija
+        <input
+          type="text"
+          name="category"
+          placeholder="npr. Premium"
+        >
+      </label>
+
+      <label>
+        Veličine
+        <input
+          type="text"
+          name="sizes"
+          placeholder="39, 40, 41, 42, 43"
+        >
+      </label>
+
+      <label>
+        Opis
+        <textarea
+          name="description"
+          rows="5"
+        ></textarea>
+      </label>
+
+      <label>
+        Slike proizvoda
+        <input
+          type="file"
+          name="images"
+          accept="image/*"
+          multiple
+        >
+      </label>
+
+      <div id="imagePreview" class="image-preview"></div>
+
+      <button
+        type="submit"
+        class="button full">
+        Sačuvaj
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>
