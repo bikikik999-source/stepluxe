@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StepLuxe — Patike sa stavom.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="#" class="logo">StepLuxe</a>
+
+    <nav>
+      <a href="#products">Prodavnica</a>
+      <a href="#about">O nama</a>
+      <a href="#contact">Kontakt</a>
+      <button id="openCart" class="cart-button">
+        Korpa <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">STEP INTO LUXURY · SRBIJA</p>
+      <h1>Patike sa<br><em>stavom.</em></h1>
+      <p class="hero-text">
+        Pažljivo odabrane patike za svaki korak.
+        Moderan dizajn, premium osećaj i dostava širom Srbije.
+      </p>
+      <a href="#products" class="button">Pogledaj kolekciju →</a>
+    </div>
+  </section>
+
+  <section class="marquee">
+    <div>DOSTAVA ŠIROM SRBIJE</div>
+    <div>SRBIJA</div>
+    <div>STEPLUXE</div>
+    <div>NOVE PATIKE</div>
+  </section>
+
+  <section id="products" class="products-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">KOLEKCIJA</p>
+          <h2>Najnovije patike</h2>
+        </div>
+
+        <select id="sort">
+          <option value="default">Sortiraj</option>
+          <option value="price-low">Cena: najniža</option>
+          <option value="price-high">Cena: najviša</option>
+        </select>
+      </div>
+
+      <div id="products" class="product-grid"></div>
+
+    </div>
+  </section>
+
+  <section id="about" class="standard-section">
+    <div class="container standard-grid">
+
+      <div>
+        <p class="eyebrow">STEPLUXE STANDARD</p>
+        <h2>Manje buke.<br>Više stila.</h2>
+      </div>
+
+      <div>
+        <p class="large-text">
+          StepLuxe je mesto za ljubitelje patika u Srbiji.
+          Biramo modele koji izgledaju dobro, nose se lako i ostavljaju utisak.
+        </p>
+
+        <div class="features">
+          <div>
+            <strong>01</strong>
+            <span>Pažljivo odabrani modeli</span>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <span>Više slika po proizvodu</span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span>Dostava širom Srbije</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="newsletter">
+    <div class="container">
+      <p class="eyebrow">OSTANI U TOKU</p>
+      <h2>Nove patike, bez spama.</h2>
+      <a href="mailto:stepluxe@gmail.com" class="button">Kontakt →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>StepLuxe</div>
+    <div>© 2026 StepLuxe · Srbija</div>
+    <a href="admin.html">Admin</a>
+  </div>
+</footer>
+
+
+<!-- KORPA -->
+
+<aside id="cart" class="cart">
+  <div class="cart-header">
+    <h3>Tvoja korpa</h3>
+    <button id="closeCart" class="close">×</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Ukupno</span>
+      <strong id="cartTotal">0 RSD</strong>
+    </div>
+
+    <button id="checkoutBtn" class="button full">
+      Poruči →
+    </button>
+  </div>
+</aside>
+
+<div id="backdrop" class="backdrop"></div>
+
+
+<!-- DETALJI PROIZVODA -->
+
+<div id="productModal" class="modal">
+  <div class="modal-box product-modal-box">
+
+    <button onclick="closeProduct()" class="modal-close">×</button>
+
+    <div id="productDetail"></div>
+
+  </div>
+</div>
+
+
+<!-- PORUDŽBINA -->
+
+<div id="checkoutModal" class="modal">
+  <div class="modal-box checkout-box">
+
+    <button onclick="closeCheckout()" class="modal-close">×</button>
+
+    <p class="eyebrow">PORUDŽBINA</p>
+    <h2>Podaci za dostavu</h2>
+
+    <p class="muted">
+      Dostava je dostupna isključivo na teritoriji Srbije.
+    </p>
+
+    <form id="orderForm">
+
+      <label>
+        Ime i prezime
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        Telefon
+        <input type="tel" name="phone" required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        Adresa
+        <input type="text" name="address" required>
+      </label>
+
+      <label>
+        Grad
+        <input type="text" name="city" required>
+      </label>
+
+      <label>
+        Poštanski broj
+        <input type="text" name="zip" required>
+      </label>
+
+      <label>
+        Način plaćanja
+        <select name="payment" required>
+          <option value="">Izaberi</option>
+          <option value="Pouzećem">Pouzećem</option>
+        </select>
+      </label>
+
+      <button type="submit" class="button full">
+        Pošalji porudžbinu →
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
