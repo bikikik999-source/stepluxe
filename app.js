@@ -1,4 +1,21 @@
-const seed=[
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA-Dnhd4Ks5bgBBHG9Bizvl5J",
+  authDomain: "stepluxe-1329b.firebaseapp.com",
+  projectId: "stepluxe-1329b",
+  storageBucket: "stepluxe-1329b.firebasestorage.app",
+  messagingSenderId: "224523925697",
+  appId: "1:224523925697:web:f99be5491e30b058943c40"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);const seed=[
   {
     id:"1",
     name:"Aero Noir",
